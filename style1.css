@@ -7,17 +7,17 @@
     width: 100%;
     height: 100vh;
     background-color: gray;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    place-items: center;
 }
 .box{
     width: 400px;
     height: 300px;
     background-color: rgb(213, 52, 52);
     position: relative;
+    transition: 1s ease;
 }
-.box div{
+.box>div{
     width: 400;
 	height: 300;
 	border-top: 150px solid transparent;
@@ -26,19 +26,19 @@
 	border-bottom: 150px solid transparent;
     position: absolute;
     z-index: 4;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
-.box div:nth-child(odd){
+.box>div:nth-child(odd){
 	border-right: 200px solid rgb(233, 60, 80);
 }
-.box div:nth-child(even){
+.box>div:nth-child(even){
     border-bottom: 150px solid rgb(213, 52, 52);
 }
-.box div:nth-child(3){
+.box>div:nth-child(3){
     transform: scaleX(-1);
     border-right: 200px solid rgb(221, 40, 40);
 }
-.box div:nth-child(4){
+.box>div:nth-child(4){
     transform: scaleY(-1);
     border-bottom: 150px solid rgb(210, 20, 20);
     z-index: 2;
@@ -50,8 +50,13 @@
     background-color: #fff;
     margin: auto;
     border-right: 0px !important;
-    position: absolute;
+    position: relative;
     z-index: 1 !important;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    border-radius: 5px;
 }
 .red{
     background-color: green;
@@ -60,7 +65,6 @@
 }
 .box:hover .lid{
     transform: scaleY(-1) translateY(300px) rotateX(180deg);
-    /* transition: 1s; */
     border-bottom: 150px solid rgb(210, 20, 20);
     z-index: 0;
 }
@@ -72,4 +76,39 @@
 .box:hover{
     transform: translateY(10%);
     transition: 1s ease;
+}
+.box:hover figure{
+    transform: scale(120%);
+    transition: 1s ease;
+}
+figure {
+    width: 400px;
+    height: 100px;
+    background-color:rgb(61, 60, 60);
+    position: absolute;
+    bottom: -50%;
+    z-index: 100;
+    border-radius: 50%;
+    filter:blur(30px) ;
+    transition: 1s ease;
+}
+.letter div {
+    width: 20px;
+    height: 20px;
+    background-color: rgb(233, 60, 80);
+    z-index: 10;
+    position: absolute;
+    top: -130px;
+    left: -180px;
+    border-radius: 5px;
+}
+.letter div:nth-child(2) {
+    left: -150px !important;
+}
+.letter div:nth-child(3) {
+    left: -120px !important;
+}
+.letter div:nth-child(4) {
+    left: -90px !important;
+    width: 170px;
 }
